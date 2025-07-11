@@ -1,6 +1,7 @@
-
-export default function Home() {
-  return (
-   <p className="text-3xl">Hi</p>
-  );
+const Page = () => {
+    return ( <div>
+        this page is protected
+    </div> );
 }
+ 
+export default Page;
