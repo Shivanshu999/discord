@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "./provider/AuthProvider";
-import  {Header}  from "../components/Header";
+import { SideBar } from "../components/SideBar";
 import { Open_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/app/provider/Theme-Provider";
+import { cn } from "@/lib/utils";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -26,12 +28,25 @@ export default function RootLayout({
 }>) {
   return (
     <AuthProvider>
-      <html lang="en">
-        <body className={`${openSans.variable} ${geistMono.variable} antialiased`}>
-          <Header />
-          <main className="pt-16 min-h-screen bg-[#36393f]">
-            {children}
-          </main>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            `${openSans.variable} ${geistMono.variable} font-sans`
+          )}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={true}
+            storageKey="discord-theme"
+          >
+            <div className="flex h-screen bg-white dark:bg-[#313338]">
+              <SideBar />
+              <main className="flex-1 ml-64 overflow-y-auto">
+                {children}
+              </main>
+            </div>
+          </ThemeProvider>
         </body>
       </html>
     </AuthProvider>

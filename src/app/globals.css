@@ -127,3 +127,28 @@ body,
     @apply bg-background text-foreground;
   }
 }
+/* 
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 3.9%);
+  --primary: hsl(221.2 83.2% 53.3%);
+  --primary-foreground: hsl(210 40% 98%);
+  --border: hsl(0 0% 89.1%);
+  --muted: hsl(0 0% 96.1%);
+}
+
+.dark {
+  --background: hsl(0 0% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  --primary: hsl(221.2 83.2% 53.3%);
+  --primary-foreground: hsl(210 40% 98%);
+  --border: hsl(0 0% 14.9%);
+  --muted: hsl(0 0% 14.9%);
+} */
+
+/* [data-radix-popper-content-wrapper] {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+} */

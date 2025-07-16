@@ -1,7 +1,9 @@
 import { withAuth } from "@kinde-oss/kinde-auth-nextjs/middleware";
 
 export default function middleware(req) {
-  return withAuth(req);
+  return withAuth(req, {
+    publicRoutes: ["/api/uploadthing"], // ✅ make this route public
+  });
 }
 
 export const config = {

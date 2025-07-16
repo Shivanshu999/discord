@@ -1,7 +1,5 @@
-const Page = () => {
-    return ( <div>
-        this page is protected
-    </div> );
+import {SetupPage} from './(setup)/page'
+
+export default function RootPage() {
+  return <SetupPage />
 }
- 
-export default Page;
