@@ -1,3 +1,4 @@
+// components/modals/initial-modal.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import * as z from "zod";
@@ -21,8 +22,10 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import FileUpload from "../file-upload";
+// Fix this import path - adjust based on your file structure
+; // or "./ImageUpload" if it's in the same directory
 
+import { FileUpload } from "../file-upload";
 const formSchema = z.object({
   name: z.string().min(1, {
     message: "Server name is required",
@@ -31,12 +34,12 @@ const formSchema = z.object({
 });
 
 const InitialModal = () => {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,7 +50,7 @@ const InitialModal = () => {
 
   const isLoading = form.formState.isSubmitting;
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
   };
 
@@ -58,21 +61,21 @@ const InitialModal = () => {
   return (
     <Dialog open>
       <DialogContent 
-        className="bg-white text-black p-0 overflow-hidden z-[100]"
         style={{
-          position: 'fixed',
-          top: '55%',
-          left: '57%',
-          transform: 'translate(-50%, -50%)',
+          position: "fixed",
+          top: "55%",
+          left: "57%",
+          transform: "translate(-50%, -50%)",
           marginLeft: 0,
-          marginTop: 0
+          marginTop: 0,
         }}
+        className="bg-white text-black p-0 overflow-hidden"
       >
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
             Customize your server
           </DialogTitle>
-          <DialogDescription className="text-center">
+          <DialogDescription>
             Give your server a personality with a name and an image.
           </DialogDescription>
         </DialogHeader>
@@ -86,24 +89,24 @@ const InitialModal = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <FileUpload
+                        <FileUpload  
                           endpoint="serverImage"
                           value={field.value}
-                          onChange={field.onChange}
+                          onChange={field.onChange} 
                         />
                       </FormControl>
                     </FormItem>
                   )}
                 />
               </div>
-              
+
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-                      server name
+                      Server name
                     </FormLabel>
                     <FormControl>
                       <Input
