@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "./provider/AuthProvider";
-// import  { SideBar } from "../components/SideBar";
 import { Open_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/provider/Theme-Provider";
 import { cn } from "@/lib/utils";
+import { ModalProvider } from "./provider/modal-provider";
 
 
 const openSans = Open_Sans({
@@ -43,8 +43,8 @@ export default function RootLayout({
             storageKey="discord-theme"
           >
             <div >
-              {/* <SideBar /> */}
               <main >
+                <ModalProvider />
                 {children}
               </main>
             </div>
