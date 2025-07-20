@@ -20,23 +20,15 @@ export async function SideBar() {
         </div>
       </div>
 
-      {/* Main Content - Grows to fill space */}
+      {/* Main Content */}
       <div className="flex-1 p-4">
-        {/* You can add navigation items, channels, etc. here */}
-        <div className="space-y-2">
-          {/* Example navigation items */}
-
-          <div className="space-y-1">
-
-          </div>
-        </div>
+        {/* Add navigation items, channels, etc. here if needed */}
       </div>
 
-      {/* Bottom Section - Authentication & Theme Toggle */}
+      {/* Bottom Section - Auth & Theme Toggle */}
       <div className="p-4 border-t border-border">
         <div className="space-y-3">
           {user ? (
-            // User is authenticated
             <>
               <div className="flex items-center gap-3 p-2 rounded-md bg-muted/50">
                 <div className="flex items-center gap-2 flex-1">
@@ -46,7 +38,7 @@ export async function SideBar() {
                       alt="User avatar"
                       width={32}
                       height={32}
-                      className="w-8 h-8 rounded-full"
+                      className="w-8 h-8 rounded-full object-cover"
                     />
                   )}
                   <span className="text-foreground text-sm font-medium truncate">
@@ -62,7 +54,6 @@ export async function SideBar() {
               </div>
             </>
           ) : (
-            // User is not authenticated
             <div className="space-y-2">
               <LoginLink className="w-full bg-transparent text-foreground border border-border rounded px-3 py-2 text-sm font-medium hover:bg-muted transition-colors text-center block">
                 Sign In
