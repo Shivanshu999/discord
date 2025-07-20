@@ -1,26 +1,12 @@
-
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["uploadthing.com", "utfs.io", "lh3.googleusercontent.com"],
-  },
-};
-
-export default nextConfig;
-
-/* /** @type {import('next').NextConfig} 
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "utfs.io",
-        port: "",
-        pathname: "/**",
-      },
+    domains: [
+      "lh3.googleusercontent.com",
+      "blob.vercel-storage.com",
+      "ocyqcbwvf3y0d9mm.public.blob.vercel-storage.com", // ✅ YOUR BLOB DOMAIN
     ],
   },
 };
 
-export default nextConfig; */
+export default nextConfig;

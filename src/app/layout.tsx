@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/app/provider/Theme-Provider";
 import { cn } from "@/lib/utils";
 
+
 const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
             `${openSans.variable} ${geistMono.variable} font-sans`
           )}
         >
+
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
